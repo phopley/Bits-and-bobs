@@ -48,6 +48,8 @@ def draw_text(img, text, x, y):
 
 # This function detects a face using OpenCV from the supplied image
 def detect_face(img):
+    face_data = []
+    
     #convert the test image to gray image as opencv face detector expects gray images
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     
@@ -57,18 +59,25 @@ def detect_face(img):
 
     #let's detect multiscale (some images may be closer to camera than others) images
     #result is a list of faces
-    faces = face_cascade.detectMultiScale(gray, 1.1, 5);
+    faces_detected = face_cascade.detectMultiScale(gray, 1.1, 5);
     
     #if no faces are detected then return None
-    if (len(faces) == 0):
+    if (len(faces_detected) == 0):
         return None, None
     
     #under the assumption that there will be only one face in each training image
     #extract the face area from 
-    (x, y, w, h) = faces[0]
+    (x, y, w, h) = faces_detected[0]
     
     #return only the face part of the image
-    return gray[y:y+w, x:x+h], faces[0]
+    for face in faces_detected:
+        (x, y, w, h) = face
+        face_data.append(gray[y:y+w, x:x+h])
+
+    # faces_detected is an array of rectangles where faces have been detected.
+    # face_data is an array of the data for the faces detected
+    
+    return face_data, faces_detected
 
 # Next is a function called by another model when it wants to check for a face
 # This function recognizes the person in image passed
@@ -78,19 +87,21 @@ def predict(test_img):
     #make a copy of the image as we don't want to change original image
     img = test_img.copy()
     #detect face from the image
-    face, rect = detect_face(img)
-
-    if(face != None):
-        #predict the image using our face recognizer 
-        label, confidence = face_recognizer.predict(face)
+    faces, rects = detect_face(img)
     
-        #get name of respective label returned by face recognizer
-        label_text = subjects[label]
+    if(faces != None):
+        for index in range(len(faces)):
+            #predict the image using our face recognizer 
+            label, confidence = face_recognizer.predict(faces[index])
+            
+            #get name of respective label returned by face recognizer
+            label_text = subjects[label]
     
-        #draw a rectangle around face detected
-        draw_rectangle(img, rect)
-        #draw name of predicted person
-        draw_text(img, label_text, rect[0], rect[1]-5)
+            #draw a rectangle around face detected
+            draw_rectangle(img, rects[index])
+            #draw name of predicted person
+            draw_text(img, label_text, rects[index,0], rects[index,1]-5)
+            
     else:
         print("NONE")
     
