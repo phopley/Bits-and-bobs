@@ -53,11 +53,11 @@ def detect_face(img):
     
     #load OpenCV face detector, I am using LBP which is fast
     #there is also a more accurate but slow Haar classifier
-    face_cascade = cv2.CascadeClassifier('opencv-files/lbpcascade_frontalface.xml')
+    face_cascade = cv2.CascadeClassifier('opencv-files/haarcascade_frontalface_alt.xml')
 
     #let's detect multiscale (some images may be closer to camera than others) images
     #result is a list of faces
-    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.2, minNeighbors=5);
+    faces = face_cascade.detectMultiScale(gray, 1.1, 5);
     
     #if no faces are detected then return None
     if (len(faces) == 0):
@@ -80,15 +80,19 @@ def predict(test_img):
     #detect face from the image
     face, rect = detect_face(img)
 
-    #predict the image using our face recognizer 
-    label, confidence = face_recognizer.predict(face)
-    #get name of respective label returned by face recognizer
-    label_text = subjects[label]
+    if(face != None):
+        #predict the image using our face recognizer 
+        label, confidence = face_recognizer.predict(face)
     
-    #draw a rectangle around face detected
-    draw_rectangle(img, rect)
-    #draw name of predicted person
-    draw_text(img, label_text, rect[0], rect[1]-5)
+        #get name of respective label returned by face recognizer
+        label_text = subjects[label]
+    
+        #draw a rectangle around face detected
+        draw_rectangle(img, rect)
+        #draw name of predicted person
+        draw_text(img, label_text, rect[0], rect[1]-5)
+    else:
+        print("NONE")
     
     return img
 
