@@ -37,9 +37,7 @@ void RodneyRecognitionTestNode::keyboardCallBack(const keyboard::Key::ConstPtr& 
             ac_.sendGoal(goal,
                 boost::bind(&RodneyRecognitionTestNode::doneCB, this, _1, _2),
                 boost::bind(&RodneyRecognitionTestNode::activeCB, this),                
-                boost::bind(&RodneyRecognitionTestNode::feedbackCB, this, _1));
-                    
-            scanning_ = true;        
+                boost::bind(&RodneyRecognitionTestNode::feedbackCB, this, _1));                                        
         }
         else if(msg->code == keyboard::Key::KEY_c)
         {          
@@ -79,6 +77,8 @@ void RodneyRecognitionTestNode::doneCB(const actionlib::SimpleClientGoalState& s
 void RodneyRecognitionTestNode::activeCB()
 {
     ROS_DEBUG("RodneyRecognitionTestNode: Goal just went active");
+    
+    scanning_ = true;
 }
 //---------------------------------------------------------------------------
 
