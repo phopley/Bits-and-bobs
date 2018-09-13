@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<launch>  
+  <node pkg="homer_robot_face" type="RobotFace" name="RobotFace" output="screen"/>
+  <node pkg="speech" type="speech_node" name="speech_node" output="screen"/>
+  <node pkg="rodney_voice_test" type="rodney_voice_test_node" name="rodney_voice_test_node" output="screen" />
+  <node pkg="keyboard" type="keyboard" name="keyboard" output="screen" />
+</launch>
