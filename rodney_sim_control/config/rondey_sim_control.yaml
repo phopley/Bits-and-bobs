@@ -8,9 +8,9 @@ rodney:
   joint_pan_position_controller:
     type: effort_controllers/JointPositionController
     joint: servo_block_to_head_pan_bracket
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+    pid: {p: 1.0, i: 0.01, d: 0.0}
     
   joint_tilt_position_controller:
     type: effort_controllers/JointPositionController
     joint: head_pan_bracket_to_head_tilt_arm
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+    pid: {p: 1.0, i: 0.01, d: 0.0}
