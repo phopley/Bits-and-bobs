@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>rodney_head_test</name>
+  <version>0.1.0</version>
+  <description>The rodney_head_test package</description>
+
+  <maintainer email="sleepyserver@gmail.com">Philip Hopley</maintainer>
+
+  <license>BSD</license>
+
+  <author email="sleepyserver@gmail.com">Philip Hopley</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>head_control</build_depend>
+  <build_depend>keyboard</build_depend>
+
+  <build_export_depend>roscpp</build_export_depend>
+
+  <exec_depend>roscpp</exec_depend>
+
+</package>
