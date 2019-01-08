@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>rodney_recognition_test</name>
-  <version>0.0.1</version>
+  <version>0.1.0</version>
   <description>The rodney_recognition_test package</description>
 
   <maintainer email="sleepyserver6@gmail.com">Philip Hopley</maintainer>
@@ -14,14 +14,11 @@
   
   <build_depend>roscpp</build_depend>
   <build_depend>face_recognition_msgs</build_depend>
-  <build_depend>keyboard</build_depend>
   
   <build_export_depend>roscpp</build_export_depend>
   <build_export_depend>face_recognition_msgs</build_export_depend>
-  <build_export_depend>keyboard</build_export_depend>
   
   <exec_depend>roscpp</exec_depend>
   <exec_depend>face_recognition_msgs</exec_depend>
-  <exec_depend>keyboard</exec_depend>
 
 </package>
