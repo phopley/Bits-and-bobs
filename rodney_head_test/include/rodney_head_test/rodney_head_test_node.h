@@ -17,6 +17,11 @@ private:
     actionlib::SimpleActionClient<head_control::point_headAction> ac_;        
     bool moving_;
 
+    double max_pan_radians_;
+    double min_pan_radians_;
+    double max_tilt_radians_;
+    double min_tilt_radians_;
+
     const uint16_t SHIFT_CAPS_NUM_LOCK_ = (keyboard::Key::MODIFIER_NUM | keyboard::Key::MODIFIER_CAPS | 
                                            keyboard::Key::MODIFIER_LSHIFT | keyboard::Key::MODIFIER_RSHIFT);
     

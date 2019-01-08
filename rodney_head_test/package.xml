@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>rodney_head_test</name>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
   <description>The rodney_head_test package</description>
 
   <maintainer email="sleepyserver@gmail.com">Philip Hopley</maintainer>
