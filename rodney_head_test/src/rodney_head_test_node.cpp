@@ -151,7 +151,7 @@ void RodneyHeadTestNode::activeCB()
 // Called every time feedback is received for the goal
 void RodneyHeadTestNode::feedbackCB(const head_control::point_headFeedbackConstPtr& feedback)
 {
-    ROS_INFO("Got empty Feedback");    
+    ROS_INFO("Feedback pan=%f, tilt=%f", feedback->current_pan, feedback->current_tilt);    
 }
 //---------------------------------------------------------------------------
 
