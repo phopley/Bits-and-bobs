@@ -9,11 +9,10 @@ RodneyHeadTestNode::RodneyHeadTestNode(ros::NodeHandle n) : ac_("head_control_no
     // Subscribe to receive keyboard input
     key_sub_ = nh_.subscribe("keyboard/keydown", 100, &RodneyHeadTestNode::keyboardCallBack, this);
 
-	nh_.param("/servo/index0/pan/max", max_pan_radians_, M_PI/2.0);
-	nh_.param("/servo/index0/pan/min", min_pan_radians_, -(M_PI/2.0));
-   	nh_.param("/servo/index0/tilt/max", max_tilt_radians_, M_PI/2.0);
+    nh_.param("/servo/index0/pan/max", max_pan_radians_, M_PI/2.0);
+    nh_.param("/servo/index0/pan/min", min_pan_radians_, -(M_PI/2.0));
+    nh_.param("/servo/index0/tilt/max", max_tilt_radians_, M_PI/2.0);
     nh_.param("/servo/index0/tilt/min", min_tilt_radians_, -(M_PI/2.0));
-
 
     ROS_INFO("RodneyHeadTestNode: Waiting for action server to start");
 
@@ -161,9 +160,7 @@ int main(int argc, char **argv)
     ros::NodeHandle n;    
     RodneyHeadTestNode rodney_head_test_node(n);   
     std::string node_name = ros::this_node::getName();
-	ROS_INFO("%s started", node_name.c_str());
+    ROS_INFO("%s started", node_name.c_str());
     ros::spin();
     return 0;
 }
-
-
