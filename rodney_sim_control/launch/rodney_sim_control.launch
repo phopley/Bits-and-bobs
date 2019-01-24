@@ -6,6 +6,7 @@
     <!-- Launch Gazebo with an empty world and by default the simulation is paused -->
     <arg name="paused" default="true" />    
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find rodney_sim_control)/worlds/rodney.world"/>
         <arg name="paused" value="$(arg paused)"/>
     </include>
     

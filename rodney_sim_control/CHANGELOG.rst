@@ -1,6 +1,10 @@
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Changelog for package joystick
+Changelog for package rodney_sim_control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+0.3.0 (2019-01-24)
+------------------
+* Added items to rodney.world
 
 0.2.0 (2019-01-12)
 ------------------
