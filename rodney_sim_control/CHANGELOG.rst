@@ -2,6 +2,12 @@
 Changelog for package rodney_sim_control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.4.0 (2019-02-19)
+------------------
+* Change in model from EffortJointInterface to PositionJointInterface
+* Now launches rviz at the same time as Gazebo
+* Added bash_scripts file to capture long winded ros commands
+
 0.3.0 (2019-01-24)
 ------------------
 * Added items to rodney.world

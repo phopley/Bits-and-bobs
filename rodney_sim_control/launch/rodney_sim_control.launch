@@ -10,18 +10,21 @@
         <arg name="paused" value="$(arg paused)"/>
     </include>
     
-    <!-- Spawn the robot into the empty world -->
+    <!-- Spawn the robot into the empty world -->-
     <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-param robot_description -urdf -model rodney -z 0.087"/>
     
     <!-- Load joint controller configurations from YAML file to parameter server -->
     <rosparam file="$(find rodney_sim_control)/config/rondey_sim_control.yaml" command="load"/>
 
     <!-- load the controllers -->
-    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/rodney" args="joint_pan_position_controller joint_tilt_position_controller joint_state_controller"/>
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="head_controller"/>
 
     <!-- convert joint states to TF transforms for rviz, etc -->
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
-        <remap from="/joint_states" to="/rodney/joint_states" />
-    </node>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+
+    <!-- Launch rviz --> 
+    <arg name="rvizconfig" default="$(find rodney_sim_control)/rviz/urdf.rviz" />       
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>
 
 </launch>
+
