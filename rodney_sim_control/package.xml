@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>rodney_sim_control</name>
-  <version>0.3.0</version>
+  <version>0.4.1</version>
   <description>The rodney_sim_control package</description>
 
   <maintainer email="sleepyserver6@gmail.com">Philip Hopley</maintainer>

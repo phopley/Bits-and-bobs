@@ -7,7 +7,6 @@ Panels:
         - /Global Options1
         - /Status1
         - /Camera1
-        - /Camera1/Status1
         - /LaserScan1
       Splitter Ratio: 0.5
     Tree Height: 567
@@ -161,12 +160,12 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        lidar_link:
+        lidar_base:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        lidar_servo:
+        lidar_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -265,7 +264,7 @@ Visualization Manager:
       Max Color: 255; 255; 255
       Max Intensity: 999999
       Min Color: 0; 0; 0
-      Min Intensity: 0
+      Min Intensity: -999999
       Name: LaserScan
       Position Transformer: XYZ
       Queue Size: 10
@@ -273,7 +272,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.0199999996
       Style: Flat Squares
-      Topic: /laser/scan
+      Topic: /scan
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -303,25 +302,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 11.9773779
+      Distance: 15.5235167
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0
-        Y: 0
-        Z: 0
+        X: -0.157049313
+        Y: 0.0589725003
+        Z: 0.0515466109
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.785398006
+      Pitch: 0.550398052
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.785398006
+      Yaw: 0.465398341
     Saved: ~
 Window Geometry:
   Camera:

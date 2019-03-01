@@ -11,7 +11,7 @@
     </include>
     
     <!-- Spawn the robot into the empty world -->-
-    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-param robot_description -urdf -model rodney -z 0.087"/>
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-param robot_description -urdf -model rodney -z 0.090"/>
     
     <!-- Load joint controller configurations from YAML file to parameter server -->
     <rosparam file="$(find rodney_sim_control)/config/rondey_sim_control.yaml" command="load"/>

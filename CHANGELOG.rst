@@ -2,6 +2,10 @@
 Changelog for Robotics-test-code
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.2.1 (2019-03-01)
+------------------
+* Updated rodney_sim_control package to 0.4.1
+
 0.2.0 (2019-02-19)
 ------------------
 * Updated rodney_sim_control packeage to 0.4.0

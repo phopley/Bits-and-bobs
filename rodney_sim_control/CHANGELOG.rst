@@ -2,6 +2,10 @@
 Changelog for package rodney_sim_control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.4.1 (2019-03-01)
+------------------
+* Fixed gravity error in Gazebo introduced with the PositionJointInterface 
+
 0.4.0 (2019-02-19)
 ------------------
 * Change in model from EffortJointInterface to PositionJointInterface
