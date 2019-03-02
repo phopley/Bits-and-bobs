@@ -1,30 +1,33 @@
 <launch>
-
-    <!-- Load Rodney URDF into the parameter server -->
-    <param name="robot_description" textfile="$(find rodney)/urdf/rodney.urdf" />
+  <!-- Load parameters used by thr Rodney code -->
+  <rosparam command="load" file="$(find rodney)/config/config.yaml" />
     
-    <!-- Launch Gazebo with an empty world and by default the simulation is paused -->
-    <arg name="paused" default="true" />    
-    <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="world_name" value="$(find rodney_sim_control)/worlds/rodney.world"/>
-        <arg name="paused" value="$(arg paused)"/>
-    </include>
+  
+  <!-- Load Rodney URDF into the parameter server -->
+  <param name="robot_description" textfile="$(find rodney)/urdf/rodney.urdf" />
     
-    <!-- Spawn the robot into the empty world -->-
-    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-param robot_description -urdf -model rodney -z 0.090"/>
+  <!-- Launch Gazebo with an williw garage world -->
+  <include file="$(find gazebo_ros)/launch/willowgarage_world.launch"/>
     
-    <!-- Load joint controller configurations from YAML file to parameter server -->
-    <rosparam file="$(find rodney_sim_control)/config/rondey_sim_control.yaml" command="load"/>
+  <!-- Spawn the robot into the world -->-
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-param robot_description -urdf -model rodney -x 8 -y -8 -z 0.090"/>
+    
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find rodney_sim_control)/config/rondey_sim_control.yaml" command="load"/>
 
-    <!-- load the controllers -->
-    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="head_controller"/>
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="head_controller"/>
 
-    <!-- convert joint states to TF transforms for rviz, etc -->
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
 
-    <!-- Launch rviz --> 
-    <arg name="rvizconfig" default="$(find rodney_sim_control)/rviz/urdf.rviz" />       
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>
+  <!-- Launch rviz --> 
+  <arg name="rvizconfig" default="$(find rodney_sim_control)/rviz/urdf.rviz" />       
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>
+  
+  <!-- Launch the Rodney code that we will use in this simulation -->  
+  <node pkg="rodney" type="rodney_node" name="rodney_node" output="screen" />
+  <node pkg="joystick" type="joystick_node" name="joystick_node" output="screen" />
 
 </launch>
 

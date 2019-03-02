@@ -2,6 +2,10 @@
 Changelog for Robotics-test-code
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Unreleased
+------------------
+* rodney_sim_control now using willowgarage world
+
 0.2.1 (2019-03-01)
 ------------------
 * Updated rodney_sim_control package to 0.4.1
