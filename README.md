@@ -1,4 +1,6 @@
 # Test code for robotic projects
+## mapping_launch
+ROS launch file used to set up parameters for gmapping
 ## odom_test
 odom_test1_node.py  
 ROS node that prints out the yaw of a robot in degrees

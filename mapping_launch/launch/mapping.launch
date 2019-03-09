@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<launch>  
+  <param name="use_sim_time" value="true"/>
+  <param name="/slam_gmapping/xmax" value="10"/>
+  <param name="/slam_gmapping/ymax" value="10"/>
+  <param name="/slam_gmapping/xmin" value="-10"/>
+  <param name="/slam_gmapping/ymin" value="-10"/>
+  <param name="/slam_gmapping/delta" value="0.05"/>
+  
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen"/>
+
+</launch>

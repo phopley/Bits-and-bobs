@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<launch>
+  <rosparam command="load" file="$(find rodney)/config/amcl_config.yaml"/>
+  <rosparam command="load" file="$(find rodney)/config/base_local_planner_params.yaml"/>
+  <rosparam command="load" file="$(find rodney)/config/local_costmap_params.yaml"/>
+  <rosparam command="load" file="$(find rodney)/config/global_costmap_params.yaml"/>    
+
+  <!-- map server -->
+  <node pkg="map_server" type="map_server" name="map_server" args="$(find rodney_sim_control)/maps/willowgarage_world.yaml"/>
+
+  <!-- amcl -->
+  <node pkg="amcl" type="amcl" name="amcl" output="screen"/>
+  
+  <!-- move_base -->
+  <node pkg="move_base" type="move_base" name="move_base" respawn="false" output="screen">
+    <rosparam command="load" file="$(find rodney)/config/costmap_common_params.yaml" ns="global_costmap"/>
+    <rosparam command="load" file="$(find rodney)/config/costmap_common_params.yaml" ns="local_costmap"/>      
+    <remap from="cmd_vel" to="demand_vel"/>
+  </node>
+
+</launch>

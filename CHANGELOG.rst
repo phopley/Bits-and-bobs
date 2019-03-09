@@ -4,7 +4,8 @@ Changelog for Robotics-test-code
 
 Unreleased
 ------------------
-* rodney_sim_control now using willowgarage world
+* rodney_sim_control now using willowgarage world and nav stack
+* Added mapping_launch package
 
 0.2.1 (2019-03-01)
 ------------------
