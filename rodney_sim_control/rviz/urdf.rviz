@@ -5,10 +5,16 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
+        - /Grid1
         - /TF1/Frames1
-        - /TF1/Tree1
+        - /TF1/Tree1/map1
+        - /TF1/Tree1/map1/odom1
+        - /TF1/Tree1/map1/odom1/base_link1
+        - /TF1/Tree1/map1/odom1/base_link1/fwd_post_11
         - /Navigation1
-      Splitter Ratio: 0.5
+        - /Navigation1/Local Planning1
+        - /Navigation1/Local Planning1/Map1
+      Splitter Ratio: 0.743515849
     Tree Height: 775
   - Class: rviz/Selection
     Name: Selection
@@ -48,7 +54,7 @@ Visualization Manager:
         Z: 0
       Plane: XY
       Plane Cell Count: 10
-      Reference Frame: <Fixed Frame>
+      Reference Frame: base_link
       Value: true
     - Alpha: 1
       Class: rviz/RobotModel
@@ -237,7 +243,9 @@ Visualization Manager:
       Unreliable: false
       Value: false
       Visibility:
-        "":
+        Grid: true
+        LaserScan: true
+        Navigation:
           Global Planning:
             Map: true
             Path: true
@@ -249,9 +257,8 @@ Visualization Manager:
           Map: true
           Pose Estimation: true
           Value: true
-        Grid: true
-        LaserScan: true
         RobotModel: true
+        TF: true
         Value: true
       Zoom Factor: 1
     - Alpha: 1
@@ -269,9 +276,9 @@ Visualization Manager:
       Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
-      Max Intensity: 999999
+      Max Intensity: 1.26857106e-37
       Min Color: 0; 0; 0
-      Min Intensity: 999999
+      Min Intensity: 1.26857106e-37
       Name: LaserScan
       Position Transformer: XYZ
       Queue Size: 10
@@ -433,7 +440,7 @@ Visualization Manager:
           Axes Length: 0.300000012
           Axes Radius: 0.00999999978
           Class: rviz/PoseArray
-          Color: 255; 25; 0
+          Color: 0; 170; 0
           Enabled: true
           Head Length: 0.0700000003
           Head Radius: 0.0299999993
@@ -471,7 +478,7 @@ Visualization Manager:
               Value: true
             - Alpha: 0.699999988
               Class: rviz/Map
-              Color Scheme: map
+              Color Scheme: costmap
               Draw Behind: true
               Enabled: true
               Name: Map
@@ -508,8 +515,8 @@ Visualization Manager:
               Value: true
             - Alpha: 0.699999988
               Class: rviz/Map
-              Color Scheme: map
-              Draw Behind: true
+              Color Scheme: costmap
+              Draw Behind: false
               Enabled: true
               Name: Map
               Topic: /move_base/local_costmap/costmap
@@ -544,26 +551,21 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Class: rviz/Orbit
-      Distance: 34.2646675
+      Angle: -0.0600000136
+      Class: rviz/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
-      Focal Point:
-        X: 3.00243974
-        Y: -9.14005852
-        Z: -10.1093502
-      Focal Shape Fixed Size: true
-      Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.854797006
+      Scale: 39.102993
       Target Frame: <Fixed Frame>
-      Value: Orbit (rviz)
-      Yaw: 0.45039767
+      Value: TopDownOrtho (rviz)
+      X: -0.665002406
+      Y: -5.24605131
     Saved: ~
 Window Geometry:
   Camera:

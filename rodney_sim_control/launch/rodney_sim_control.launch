@@ -2,6 +2,10 @@
 <launch>
   <!-- Load parameters used by thr Rodney code -->
   <rosparam command="load" file="$(find rodney)/config/config.yaml" />
+  <rosparam command="load" file="$(find rodney)/config/amcl_config.yaml"/>
+  <rosparam command="load" file="$(find rodney)/config/base_local_planner_params.yaml"/>
+  <rosparam command="load" file="$(find rodney)/config/local_costmap_params.yaml"/>
+  <rosparam command="load" file="$(find rodney)/config/global_costmap_params.yaml"/> 
 
   <!-- Load the URDF model in to the parameter server from the xacro file -->
   <arg name="model" default="$(find rodney)/urdf/rodney.xacro"/>
@@ -27,11 +31,24 @@
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>
   
   <!-- Launch the Rodney code that we will use in this simulation -->  
-  <node pkg="rodney" type="rodney_node" name="rodney_node" output="screen"/>
-  <node pkg="joystick" type="joystick_node" name="joystick_node" output="screen"/>
+  <node pkg="rodney" type="rodney_node" name="rodney_node" output="screen"/> 
+  <include file="$(find rodney)/launch/remote.launch" />
   
   <!-- Static transform for the laser -> baselink. We need this for mapping etc -->
   <node pkg="tf" type="static_transform_publisher" name="laser_link_broadcaster" args="0.085 0 0.107 0 0 0 base_link laser 100"/>
+
+  <!-- Navigation -->
+  <arg name="no_nav" default="false"/>  
+  <group unless="$(arg no_nav)"> 
+    <arg name="map_file" default="willowgarage_world"/>
+    <node pkg="map_server" type="map_server" name="map_server" args="$(find rodney_sim_control)/maps/$(arg map_file).yaml" output="screen"/>  
+    <node pkg="amcl" type="amcl" name="amcl" output="screen"/>          
+    <node pkg="move_base" type="move_base" name="move_base" respawn="false" output="screen">
+      <rosparam command="load" file="$(find rodney)/config/costmap_common_params.yaml" ns="global_costmap"/>
+      <rosparam command="load" file="$(find rodney)/config/costmap_common_params.yaml" ns="local_costmap"/>      
+      <remap from="cmd_vel" to="demand_vel"/>
+    </node>   
+  </group>  
 
 </launch>
 
