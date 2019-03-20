@@ -18,8 +18,6 @@ ROS node for testing the head_control node
 Simple ROS node which tests the tf_object_detection node
 ## rodney_recognition_test
 Simple ROS node which tests the face_recognition node
-## rodney_sim_control
-ROS package that launches the rodney urdf model in a Gazebo empty world
 ## rodney_voice_test
 ROS node for a Rodney robot intergration test. Test the following packages together:
 * homer_robot_face
