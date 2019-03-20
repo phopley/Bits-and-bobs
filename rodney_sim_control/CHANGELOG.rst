@@ -5,7 +5,7 @@ Changelog for package rodney_sim_control
 Unreleased
 ------------------
 * Now using willowgarage world
-* Add nav launch file so to include nav stack
+* Add launching nav stack
 
 0.4.1 (2019-03-01)
 ------------------
