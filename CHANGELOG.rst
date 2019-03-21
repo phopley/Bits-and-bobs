@@ -5,6 +5,7 @@ Changelog for Robotics-test-code
 Unreleased
 ------------------
 * rodney_sim_control folder moved to own repository rodney_simulation
+* Added pid_test
 
 0.2.1 (2019-03-01)
 ------------------
