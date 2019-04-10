@@ -3,7 +3,9 @@
 ROS launch file used to set up parameters for gmapping
 ## odom_test
 odom_test1_node.py  
-ROS node that prints out the yaw of a robot in degrees
+ROS node that prints out the yaw of a robot in degrees from both raw and fused odom
+## pid_test
+ROS node to demand a set speed from the motors for a set time
 ## rodney_head_test
 ROS node for testing the head_control node
 * Key 1 - move to max pan and tilt

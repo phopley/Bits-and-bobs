@@ -2,10 +2,11 @@
 Changelog for Robotics-test-code
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Unreleased
+0.3.0 (2019-04-10)
 ------------------
 * rodney_sim_control folder moved to own repository rodney_simulation
 * Added pid_test
+* Now displays raw odom and fused odom
 
 0.2.1 (2019-03-01)
 ------------------
