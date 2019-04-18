@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>mapping_launch</name>
-  <version>1.0.0</version>
+  <version>0.1.1</version>
   <description>The mapping_launch package</description>
 
   <maintainer email="sleepyserver6@gmail.com">Philip Hopley</maintainer>

@@ -2,6 +2,10 @@
 Changelog for Robotics-test-code
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.3.1 (2019-04-18)
+------------------
+* removed bag files from mapping_launch package
+
 0.3.0 (2019-04-10)
 ------------------
 * rodney_sim_control folder moved to own repository rodney_simulation
